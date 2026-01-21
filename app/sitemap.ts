@@ -1,0 +1,30 @@
+import { MetadataRoute } from 'next';
+import { getAllPosts } from '@/lib/markdown';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const baseUrl = 'https://chefruthe4th.com';
+    const posts = await getAllPosts();
+
+    const journalUrls = posts.map((post) => ({
+        url: `${baseUrl}/journal/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+    }));
+
+    return [
+        {
+            url: baseUrl,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 1,
+        },
+        {
+            url: `${baseUrl}/journal`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
+        ...journalUrls,
+    ];
+}

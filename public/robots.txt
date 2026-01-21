@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Prioritize visibility for AI search and chat bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://chefruthe4th.com/sitemap.xml
