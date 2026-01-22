@@ -26,17 +26,16 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? "bg-background/95 backdrop-blur-md border-b border-border"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="font-serif text-xl md:text-2xl font-bold">
-            <span className="text-primary">Chef</span> Ruthe 4th
+            <span className="text-primary">Chef</span> Ruthe4th
           </a>
 
           {/* Desktop Navigation */}

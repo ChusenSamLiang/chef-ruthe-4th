@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import db from '@/lib/db';
+export const dynamic = 'force-dynamic';
+import { getDb } from '@/lib/db';
 import { z } from 'zod';
 
 const bookingSchema = z.object({
@@ -17,6 +18,7 @@ export async function POST(request: Request) {
         const body = await request.json();
         const validatedData = bookingSchema.parse(body);
 
+        const db = getDb();
         const stmt = db.prepare(`
       INSERT INTO bookings (name, email, phone, date, guests, serviceType, message)
       VALUES (?, ?, ?, ?, ?, ?, ?)
