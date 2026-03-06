@@ -60,16 +60,17 @@ export function HeroSection() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif text-base px-8 py-6"
+              asChild
             >
-              Book a Consultation
+              <a href="#booking">Book a Consultation</a>
             </Button>
-            <Button
+            {/* <Button
               size="lg"
               variant="outline"
               className="border-foreground/20 hover:bg-foreground/5 text-foreground font-serif text-base px-8 py-6 bg-transparent"
             >
               View Sample Menus
-            </Button>
+            </Button> */}
           </motion.div>
         </div>
       </div>

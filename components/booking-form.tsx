@@ -22,6 +22,7 @@ const bookingSchema = z.object({
   serviceType: z.string().min(1, "Please select a service type"),
   dietary: z.array(z.string()).optional(),
   message: z.string().optional(),
+  subject: z.string().max(0).optional(), // Honeypot field
 })
 
 type BookingFormData = z.infer<typeof bookingSchema>
@@ -85,10 +86,11 @@ export function BookingForm() {
         setIsSubmitted(true)
         toast.success("Inquiry sent successfully!")
       } else {
-        throw new Error("Failed to submit inquiry")
+        const errorData = await response.json()
+        throw new Error(errorData.error || "Failed to submit inquiry")
       }
-    } catch (error) {
-      toast.error("Something went wrong. Please try again.")
+    } catch (error: any) {
+      toast.error(error.message || "Something went wrong. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -174,8 +176,8 @@ export function BookingForm() {
               <div key={step.id} className="flex items-center">
                 <div
                   className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-colors ${currentStep >= step.id
-                      ? "bg-primary border-primary text-primary-foreground"
-                      : "border-border text-muted-foreground"
+                    ? "bg-primary border-primary text-primary-foreground"
+                    : "border-border text-muted-foreground"
                     }`}
                 >
                   <step.icon className="w-5 h-5" />
@@ -203,6 +205,15 @@ export function BookingForm() {
                     className="space-y-6"
                   >
                     <h3 className="font-serif text-xl font-bold mb-6">Event Details</h3>
+                    {/* Honeypot field - hidden from users */}
+                    <div className="hidden" aria-hidden="true">
+                      <Input
+                        id="subject"
+                        {...register("subject")}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="name">Full Name</Label>
@@ -292,8 +303,8 @@ export function BookingForm() {
                           type="button"
                           onClick={() => setValue("serviceType", service.id)}
                           className={`p-6 rounded-xl border-2 text-left transition-colors ${formValues.serviceType === service.id
-                              ? "border-primary bg-primary/5"
-                              : "border-border hover:border-primary/50"
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
                             }`}
                         >
                           <p className="font-serif font-bold text-lg">{service.label}</p>
@@ -321,8 +332,8 @@ export function BookingForm() {
                           type="button"
                           onClick={() => toggleDietary(option)}
                           className={`px-4 py-2 rounded-full border transition-colors ${formValues.dietary?.includes(option)
-                              ? "border-primary bg-primary text-primary-foreground"
-                              : "border-border hover:border-primary/50"
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "border-border hover:border-primary/50"
                             }`}
                         >
                           {option}

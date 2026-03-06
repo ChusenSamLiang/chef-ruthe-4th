@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
-const categories = ["All", "Appetizers", "Mains", "Desserts"] as const
+// const categories = ["All", "Appetizers", "Mains", "Desserts"] as const
+const categories = [] as const
 type Category = typeof categories[number]
 
 const menuItems = [
@@ -88,8 +89,8 @@ export function MenuGallery() {
                 variant={activeCategory === category ? "default" : "outline"}
                 onClick={() => setActiveCategory(category)}
                 className={`font-serif ${activeCategory === category
-                    ? "bg-primary text-primary-foreground"
-                    : "border-border hover:border-primary/50 text-foreground"
+                  ? "bg-primary text-primary-foreground"
+                  : "border-border hover:border-primary/50 text-foreground"
                   }`}
               >
                 {category}
@@ -132,13 +133,13 @@ export function MenuGallery() {
                   <p className="text-muted-foreground text-sm mb-4">
                     {item.description}
                   </p>
-                  <Button
+                  {/* <Button
                     variant="outline"
                     size="sm"
                     className="w-full border-primary/30 hover:bg-primary hover:text-primary-foreground font-serif transition-colors bg-transparent"
                   >
                     Order Now
-                  </Button>
+                  </Button> */}
                 </div>
               </motion.article>
             ))}

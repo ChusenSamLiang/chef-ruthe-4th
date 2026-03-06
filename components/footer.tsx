@@ -18,7 +18,7 @@ const quickLinks = [
 
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com/chefruthe4th", label: "Instagram" },
-  { icon: Facebook, href: "https://facebook.com/chefruthe4th", label: "Facebook" },
+  // { icon: Facebook, href: "https://facebook.com/chefruthe4th", label: "Facebook" },
 ]
 
 export function Footer() {
@@ -85,12 +85,12 @@ export function Footer() {
               <li className="flex items-start gap-3 text-muted-foreground text-sm">
                 <Mail className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <a href="mailto:chef@chefruthe4th.com" className="hover:text-primary transition-colors">
-                  chef@chefruthe4th.com
+                  chefruthe4th@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-muted-foreground text-sm">
                 <Phone className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-gray-500">Available via Inquiries</span>
+                <span className="text-gray-500">(347) 300-3944</span>
               </li>
               <li className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />

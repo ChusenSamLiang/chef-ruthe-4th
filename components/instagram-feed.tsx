@@ -32,11 +32,11 @@ export function InstagramFeed() {
                 <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
 
-            <div className="mt-8 flex gap-2">
+            {/* <div className="mt-8 flex gap-2">
                 {[1, 2, 3].map((i) => (
                     <div key={i} className="w-12 h-12 bg-white/5 rounded-lg border border-white/5 overflow-hidden animate-pulse" />
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

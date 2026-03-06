@@ -18,7 +18,7 @@ export function PhilosophySection() {
           >
             <div className="aspect-[4/5] relative rounded-2xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=1000&auto=format&fit=crop"
+                src="../images/Eric.jpg"
                 alt="Chef Ruthe 4th"
                 fill
                 className="object-cover"
@@ -64,12 +64,12 @@ export function PhilosophySection() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-border">
               <div>
-                <p className="font-serif text-3xl lg:text-4xl font-bold text-primary">15+</p>
+                <p className="font-serif text-3xl lg:text-4xl font-bold text-primary">10+</p>
                 <p className="text-muted-foreground text-sm mt-1">Years Experience</p>
               </div>
               <div>
                 <p className="font-serif text-3xl lg:text-4xl font-bold text-primary">500+</p>
-                <p className="text-muted-foreground text-sm mt-1">Events Catered</p>
+                <p className="text-muted-foreground text-sm mt-1">Clients Served</p>
               </div>
               <div>
                 <p className="font-serif text-3xl lg:text-4xl font-bold text-primary">100%</p>

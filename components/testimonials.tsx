@@ -34,7 +34,7 @@ export function Testimonials() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <span className="inline-block text-accent font-serif text-sm uppercase tracking-[0.3em] mb-4">Social Proof</span>
+                    {/* <span className="inline-block text-accent font-serif text-sm uppercase tracking-[0.3em] mb-4">Social Proof</span> */}
                     <h2 className="text-4xl md:text-5xl font-serif font-bold text-white">Guest Experiences</h2>
                 </motion.div>
 
